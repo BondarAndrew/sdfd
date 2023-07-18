@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пора року</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Визначення пори року</h1>
+    <label for="month">Введіть номер місяця:</label>
+    <input type="number" id="month" min="1" max="12">
+    <button onclick="determineSeason()">Визначити</button>
+    <p id="result"></p>
+
+    <script>
+        function determineSeason() {
+            let monthInput = document.getElementById("month");
+            let month = parseInt(monthInput.value);
+
+            if (month >= 1 && month <= 12) {
+                let season;
+                switch (month) {
+                    case 12:
+                    case 1:
+                    case 2:
+                        season = "зима";
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                        season = "весна";
+                        break;
+                    case 6:
+                    case 7:
+                    case 8:
+                        season = "літо";
+                        break;
+                    case 9:
+                    case 10:
+                    case 11:
+                        season = "осінь";
+                        break;
+                    default:
+                        season = "невідомо";
+                }
+                document.getElementById("result").textContent = "Цей місяць належить до пори року: " + season + ".";
+            } else {
+                document.getElementById("result").textContent = "Введіть коректний номер місяця (1-12).";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Перевірка дня тижня</title>
+  <script>
+    function checkDay() {
+      let inputElement = document.getElementById("dayInput");
+      let day = inputElement.value.toLowerCase();
+      let messageBlock = document.getElementById("message");
+      
+      switch (day) {
+        case "понеділок":
+        case "вівторок":
+        case "середа":
+        case "четвер":
+        case "п'ятниця":
+          messageBlock.innerText = "Це робочий день.";
+          break;
+        case "субота":
+        case "неділя":
+          messageBlock.innerText = "Це вихідний день.";
+          break;
+        default:
+          messageBlock.innerText = "Введіть день тижня.";
+          break;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Перевірка дня тижня</h1>
+  <input type="text" id="dayInput" placeholder="Введіть день тижня">
+  <button onclick="checkDay()">Перевірити</button>
+  <div id="message"></div>
+</body>
+</html>

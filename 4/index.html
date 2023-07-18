@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кількість днів у місяці</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Визначення кількості днів у місяці</h1>
+    <label for="month">Введіть номер місяця:</label>
+    <input type="number" id="month" min="1" max="12">
+    <button onclick="getNumberOfDays()">Визначити</button>
+    <p id="result"></p>
+
+    <script>
+        function getNumberOfDays() {
+            let monthInput = document.getElementById("month");
+            let month = parseInt(monthInput.value);
+
+            if (month >= 1 && month <= 12) {
+                var numberOfDays;
+                switch (month) {
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        numberOfDays = 31;
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        numberOfDays = 30;
+                        break;
+                    case 2:
+                        numberOfDays = 28;
+                        break;
+                    default:
+                        numberOfDays = "невідомо";
+                }
+                document.getElementById("result").textContent = "Кількість днів у цьому місяці: " + numberOfDays + ".";
+            } else {
+                document.getElementById("result").textContent = "Введіть коректний номер місяця (1-12).";
+            }
+        }
+    </script>
+</body>
+</html>

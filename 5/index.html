@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Визначення дії за кольором</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Визначення дії за кольором</h1>
+    <label for="color">Введіть назву кольору:</label>
+    <input type="text" id="color">
+    <button onclick="performAction()">Виконати</button>
+    <p id="result"></p>
+
+    <script>
+        function performAction() {
+            var colorInput = document.getElementById("color");
+            var color = colorInput.value.toLowerCase();
+
+            var action;
+            switch (color) {
+                case "червоний":
+                    action = "стоп";
+                    break;
+                case "зелений":
+                    action = "йти";
+                    break;
+                case "жовтий":
+                    action = "чекати";
+                    break;
+                default:
+                    action = "невідома дія";
+            }
+
+            document.getElementById("result").textContent = "Дія за кольором " + color + ": " + action + ".";
+        }
+    </script>
+</body>
+</html>

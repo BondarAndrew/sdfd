@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <label for="num1">Перше число:</label>
+    <input type="number" id="num1">
+    <br>
+    <label for="num2">Друге число:</label>
+    <input type="number" id="num2">
+    <br>
+    <label for="operation">Операція:</label>
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <button onclick="performOperation()">Обчислити</button>
+    <p id="result"></p>
+
+    <script>
+        function performOperation() {
+            var num1Input = document.getElementById("num1");
+            var num2Input = document.getElementById("num2");
+            var operationSelect = document.getElementById("operation");
+
+            var num1 = parseFloat(num1Input.value);
+            var num2 = parseFloat(num2Input.value);
+            var operation = operationSelect.value;
+
+            var result;
+            switch (operation) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 !== 0) {
+                        result = num1 / num2;
+                    } else {
+                        result = "Помилка: Ділення на нуль!";
+                    }
+                    break;
+                default:
+                    result = "Невідома операція";
+            }
+
+            document.getElementById("result").textContent = "Результат: " + result;
+        }
+    </script>
+</body>
+</html>

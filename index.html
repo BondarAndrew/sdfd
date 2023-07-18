@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Вибір напою</title>
+  <script>
+    function showSelected() {
+      var selectElement = document.getElementById("beverage");
+      var selectedOption = selectElement.options[selectElement.selectedIndex].value;
+      var messageBlock = document.getElementById("message");
+      
+      switch (selectedOption) {
+        case "coffee":
+          messageBlock.innerText = "Ви обрали каву!";
+          break;
+        case "tea":
+          messageBlock.innerText = "Ви обрали чай!";
+          break;
+        case "juice":
+          messageBlock.innerText = "Ви обрали сік!";
+          break;
+        default:
+          messageBlock.innerText = "";
+          break;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Виберіть напій</h1>
+  <form>
+    <select id="beverage" onchange="showSelected()">
+      <option value="">-- Оберіть напій --</option>
+      <option value="coffee">Кава</option>
+      <option value="tea">Чай</option>
+      <option value="juice">Сік</option>
+    </select>
+  </form>
+  <div id="message"></div>
+</body>
+</html>
